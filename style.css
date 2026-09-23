@@ -1,0 +1,1950 @@
+/* =========================================================
+   ALIAS — MOCHA / BORDEAUX / VANILLA
+   ========================================================= */
+
+
+/* =========================================================
+   БАЗОВЫЕ НАСТРОЙКИ
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    background: #F4EBDD;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #30251F;
+}
+
+
+/* =========================================================
+   ОСНОВНОЙ КОНТЕЙНЕР
+   ========================================================= */
+
+.game-container {
+    width: 90%;
+    max-width: 600px;
+
+    background: #FFFDF8;
+
+    padding: 40px;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 12px 35px rgba(90, 64, 53, 0.14);
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   ЗАГОЛОВКИ
+   ========================================================= */
+
+h1 {
+    font-size: 48px;
+
+    margin: 0 0 10px;
+
+    color: #5A4035;
+}
+
+
+.subtitle {
+    color: #806B5F;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   НАСТРОЙКИ
+   ========================================================= */
+
+.settings {
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+label {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    text-align: left;
+
+    font-weight: bold;
+
+    color: #5A4035;
+}
+
+
+select {
+    padding: 14px;
+
+    border: 1px solid #D7C3A7;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    background: #FFFDF8;
+
+    color: #30251F;
+
+    outline: none;
+}
+
+
+select:focus {
+    border-color: #6E2638;
+
+    box-shadow:
+        0 0 0 3px rgba(110, 38, 56, 0.10);
+}
+
+
+/* =========================================================
+   ИНФОРМАЦИЯ ОБ ИГРЕ
+   ========================================================= */
+
+.game-info {
+    background: #F1E2C9;
+
+    border-radius: 16px;
+
+    padding: 10px;
+
+    color: #5A4035;
+}
+
+
+.game-info p {
+    margin: 10px;
+}
+
+
+/* =========================================================
+   КНОПКИ — ОБЩИЕ
+   ========================================================= */
+
+button {
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: #6E2638;
+
+    color: #FFFDF8;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+}
+
+
+button:hover {
+    background: #58202F;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 12px rgba(90, 64, 53, 0.16);
+}
+
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   НАСТРОЙКА КОМАНД
+   ========================================================= */
+
+.team-card {
+    background: #F8F0E3;
+
+    border: 1px solid #E1CEB2;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    margin-bottom: 18px;
+
+    text-align: left;
+}
+
+
+.team-card h2 {
+    margin-top: 0;
+
+    margin-bottom: 15px;
+
+    font-size: 22px;
+
+    color: #5A4035;
+}
+
+
+.team-name {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #D7C3A7;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    margin-bottom: 15px;
+
+    background: #FFFDF8;
+
+    color: #30251F;
+}
+
+
+.team-name:focus {
+    outline: none;
+
+    border-color: #6E2638;
+
+    box-shadow:
+        0 0 0 3px rgba(110, 38, 56, 0.08);
+}
+
+
+/* =========================================================
+   СПИСОК ИГРОКОВ
+   ========================================================= */
+
+.players-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-bottom: 12px;
+}
+
+
+.player-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: #FFFDF8;
+
+    padding: 10px 12px;
+
+    border-radius: 10px;
+
+    border: 1px solid #E5D7C4;
+
+    color: #5A4035;
+}
+
+
+/* Удалить игрока */
+
+.remove-player {
+    background: transparent;
+
+    color: #6E2638;
+
+    padding: 4px 8px;
+
+    font-size: 16px;
+
+    box-shadow: none;
+}
+
+
+.remove-player:hover {
+    background: #F1DDE2;
+
+    box-shadow: none;
+
+    transform: none;
+}
+
+
+/* Добавить игрока */
+
+.add-player-button {
+    background: #DCE1C9;
+
+    color: #4F5B3A;
+
+    font-size: 15px;
+
+    padding: 10px 14px;
+}
+
+
+.add-player-button:hover {
+    background: #CDD5B4;
+
+    color: #3F492E;
+}
+
+
+/* Всего игроков */
+
+.players-total {
+    background: #F1E2C9;
+
+    padding: 15px;
+
+    border-radius: 14px;
+
+    margin: 20px 0;
+
+    color: #5A4035;
+}
+
+
+/* Навигация */
+
+.navigation-buttons {
+    display: flex;
+
+    gap: 12px;
+}
+
+
+.navigation-buttons button {
+    flex: 1;
+}
+
+
+/* Вторичная кнопка */
+
+.secondary-button {
+    background: #DCE1C9;
+
+    color: #4F5B3A;
+}
+
+
+.secondary-button:hover {
+    background: #CDD5B4;
+
+    color: #3F492E;
+}
+
+
+/* =========================================================
+   ИГРОВОЙ ЭКРАН
+   ========================================================= */
+
+.game-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+
+.round-label {
+    color: #806B5F;
+
+    margin-right: 5px;
+}
+
+
+/* Таймер */
+
+.timer {
+    font-size: 26px;
+
+    font-weight: bold;
+
+    color: #6E2638;
+}
+
+
+/* Команда и игрок */
+
+.turn-info {
+    background: #F1E2C9;
+
+    border-radius: 16px;
+
+    padding: 18px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid #E1CEB2;
+}
+
+
+.team-title {
+    font-size: 22px;
+
+    font-weight: bold;
+
+    margin-bottom: 8px;
+
+    color: #5A4035;
+}
+
+
+.player-title {
+    color: #806B5F;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   СЧЁТ ТЕКУЩЕГО ХОДА
+   ========================================================= */
+
+.score-info {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    margin-bottom: 20px;
+
+    color: #806B5F;
+}
+
+
+.score-info strong {
+    color: #30251F;
+}
+
+
+/* =========================================================
+   КАРТОЧКА СО СЛОВОМ
+   ========================================================= */
+
+.word-card {
+    width: 100%;
+
+    max-width: 500px;
+
+    min-height: 180px;
+
+    margin: 25px auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px 20px;
+
+    background: #FFFDF8;
+
+    border: 2px solid #E1CEB2;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 10px 25px rgba(90, 64, 53, 0.10);
+
+    text-align: center;
+}
+
+
+#word {
+    font-size: 42px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    color: #30251F;
+
+    text-align: center;
+
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   ИГРОВЫЕ КНОПКИ
+   ========================================================= */
+
+.game-buttons {
+    display: flex;
+
+    gap: 12px;
+}
+
+
+.game-buttons button {
+    flex: 1;
+
+    min-height: 60px;
+}
+
+
+/* Угадали */
+
+.correct-button {
+    background: #6E2638;
+}
+
+
+.correct-button:hover {
+    background: #58202F;
+}
+
+
+/* Пропустить */
+
+.skip-button {
+    background: #4F5B3A;
+}
+
+
+.skip-button:hover {
+    background: #3F492E;
+}
+
+
+/* =========================================================
+   РЕЗУЛЬТАТ ХОДА
+   ========================================================= */
+
+.result-screen {
+    text-align: center;
+}
+
+
+.result-icon {
+    font-size: 64px;
+
+    margin-bottom: 10px;
+}
+
+
+.turn-result-card {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    background: #F1E2C9;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    margin: 25px 0;
+}
+
+
+.turn-result-card div {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: #FFFDF8;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    border: 1px solid #E5D7C4;
+}
+
+
+.turn-result-card span {
+    color: #806B5F;
+}
+
+
+.turn-result-card strong {
+    font-size: 22px;
+
+    color: #6E2638;
+}
+
+
+/* =========================================================
+   РЕЗУЛЬТАТ РАУНДА
+   ========================================================= */
+
+.round-result {
+    text-align: center;
+}
+
+
+.scores-table {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin: 25px 0;
+}
+
+
+.score-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: #F1E2C9;
+
+    padding: 16px;
+
+    border-radius: 14px;
+
+    border: 1px solid #E1CEB2;
+
+    font-size: 18px;
+
+    color: #5A4035;
+}
+
+
+.score-row strong {
+    font-size: 22px;
+
+    color: #6E2638;
+}
+
+
+/* =========================================================
+   ФИНАЛЬНЫЙ ЭКРАН
+   ========================================================= */
+
+.final-screen {
+    text-align: center;
+}
+
+
+.final-scores {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin: 25px 0;
+}
+
+
+.final-score-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: #F1E2C9;
+
+    padding: 18px;
+
+    border-radius: 14px;
+
+    border: 1px solid #E1CEB2;
+
+    font-size: 19px;
+
+    color: #5A4035;
+}
+
+
+/* Первое место */
+
+.final-score-row:first-child {
+    background: #E8D6B8;
+
+    border: 2px solid #B99A6B;
+
+    font-size: 21px;
+
+    box-shadow:
+        0 5px 15px rgba(90, 64, 53, 0.10);
+}
+
+
+.final-score-row strong {
+    font-size: 24px;
+
+    color: #6E2638;
+}
+
+
+/* =========================================================
+   ТАБЛО СЧЁТА КОМАНД
+   ========================================================= */
+
+.teams-scoreboard {
+    width: 100%;
+
+    max-width: 500px;
+
+    margin: 12px auto 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.team-score-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 10px 16px;
+
+    background: #F1E2C9;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    color: #5A4035;
+
+    border: 1px solid #E1CEB2;
+}
+
+
+.team-score-row strong {
+    font-size: 20px;
+
+    color: #6E2638;
+}
+
+
+.team-score-row.active {
+    font-weight: 700;
+
+    box-shadow:
+        0 0 0 2px rgba(110, 38, 56, 0.12);
+}
+
+
+/* =========================================================
+   ИНДИКАЦИЯ ТАЙМЕРА
+   ========================================================= */
+
+#timer {
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+#timer.timer-warning {
+    color: #8B6B2E;
+}
+
+
+#timer.timer-danger {
+    color: #6E2638;
+
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   УПРАВЛЕНИЕ СЛОВАМИ
+   ========================================================= */
+
+.words-editor {
+    width: 100%;
+}
+
+
+.editor-subtitle {
+    margin-bottom: 20px;
+
+    color: #806B5F;
+}
+
+
+.difficulty-tabs {
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+
+    flex-wrap: wrap;
+}
+
+
+.difficulty-tab {
+    padding: 10px 16px;
+
+    border: 2px solid #D7C3A7;
+
+    border-radius: 10px;
+
+    background: #FFFDF8;
+
+    color: #5A4035;
+
+    cursor: pointer;
+}
+
+
+.difficulty-tab.active {
+    border-color: #6E2638;
+
+    font-weight: bold;
+
+    background: #F1E2C9;
+}
+
+
+.word-add {
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+
+.word-add input {
+    flex: 1;
+
+    padding: 12px;
+
+    border: 2px solid #D7C3A7;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    background: #FFFDF8;
+
+    color: #30251F;
+}
+
+
+.word-add button {
+    padding: 12px 18px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+
+#wordsList {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+
+    max-height: 400px;
+
+    overflow-y: auto;
+}
+
+
+.word-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 10px 14px;
+
+    background: #F1E2C9;
+
+    border-radius: 10px;
+
+    border: 1px solid #E1CEB2;
+
+    color: #5A4035;
+}
+
+
+.delete-word {
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    color: #6E2638;
+}
+
+
+.empty-words {
+    color: #806B5F;
+
+    text-align: center;
+
+    padding: 20px;
+}
+
+
+/* =========================================================
+   РЕДАКТИРОВАНИЕ СЛОВ
+   ========================================================= */
+
+.word-actions {
+    display: flex;
+
+    gap: 6px;
+}
+
+
+.edit-word,
+.delete-word {
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    padding: 4px;
+
+    color: #5A4035;
+
+    box-shadow: none;
+}
+
+
+.edit-word:hover,
+.delete-word:hover {
+    transform: scale(1.1);
+
+    background: transparent;
+
+    box-shadow: none;
+}
+
+
+.edit-word-input {
+    flex: 1;
+
+    padding: 8px 10px;
+
+    border: 2px solid #D7C3A7;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    min-width: 0;
+
+    background: #FFFDF8;
+
+    color: #30251F;
+}
+
+
+.save-edit,
+.cancel-edit {
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    padding: 4px;
+
+    box-shadow: none;
+}
+
+
+.save-edit:hover,
+.cancel-edit:hover {
+    transform: scale(1.1);
+
+    background: transparent;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 10px;
+
+        align-items: flex-start;
+    }
+
+
+    .game-container {
+        width: 100%;
+
+        padding: 20px 15px;
+
+        margin: 10px 0;
+    }
+
+
+    h1 {
+        font-size: 38px;
+    }
+
+
+    .subtitle {
+        margin-bottom: 25px;
+    }
+
+
+    /* Верхняя панель игры */
+
+    .game-header {
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        gap: 10px;
+    }
+
+
+    .round-label {
+        font-size: 14px;
+    }
+
+
+    .timer {
+        font-size: 20px;
+    }
+
+
+    #timer {
+        font-size: 26px;
+    }
+
+
+    /* Команда и игрок */
+
+    .turn-info {
+        margin-top: 15px;
+
+        padding: 16px;
+    }
+
+
+    .team-title {
+        font-size: 22px;
+    }
+
+
+    .player-title {
+        font-size: 17px;
+    }
+
+
+    /* Счёт */
+
+    .score-info {
+        display: flex;
+
+        justify-content: space-between;
+
+        gap: 10px;
+
+        font-size: 15px;
+    }
+
+
+    /* Слово */
+
+    .word-card {
+        min-height: 150px;
+
+        padding: 25px 15px;
+
+        margin: 20px 0;
+    }
+
+
+    #word {
+        font-size: 34px;
+
+        line-height: 1.2;
+
+        word-break: break-word;
+
+        text-align: center;
+    }
+
+
+    /* Кнопки */
+
+    .game-buttons {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+
+    .game-buttons button {
+        width: 100%;
+
+        min-height: 58px;
+
+        font-size: 18px;
+    }
+
+
+    /* Таблица счёта */
+
+    .teams-scoreboard {
+        width: 100%;
+    }
+
+
+    .team-score-row {
+        padding: 10px 12px;
+    }
+
+
+    /* Результаты */
+
+    .result-icon {
+        font-size: 54px;
+    }
+
+
+    .final-score-row,
+    .score-row {
+        font-size: 16px;
+    }
+
+
+    .final-score-row strong,
+    .score-row strong {
+        font-size: 21px;
+    }
+
+}
+/* =========================================================
+   ГЛАВНЫЙ ЭКРАН — ALIAS
+   ========================================================= */
+
+.start-screen {
+    position: relative;
+    overflow: hidden;
+
+    padding-top: 34px;
+}
+
+
+/* Маленькая надпись над логотипом */
+
+.brand-label {
+    font-size: 11px;
+
+    letter-spacing: 0.28em;
+
+    color: #4F5B3A;
+
+    margin-bottom: 12px;
+
+    font-weight: bold;
+}
+
+
+/* Логотип */
+
+.alias-logo {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 58px;
+
+    letter-spacing: 0.12em;
+
+    line-height: 1;
+
+    color: #5A4035;
+
+    margin: 0;
+
+    transform: rotate(-1deg);
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease;
+}
+
+
+.alias-logo:hover {
+    transform:
+        rotate(1deg)
+        scale(1.03);
+
+    color: #6E2638;
+}
+
+
+/* Декоративная линия */
+
+.logo-line {
+    width: 100px;
+
+    height: 1px;
+
+    background: #E8D6B8;
+
+    margin: 18px auto;
+}
+
+
+/* Подзаголовок */
+
+.start-screen .subtitle {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 17px;
+
+    font-style: italic;
+
+    color: #806B5F;
+
+    margin-bottom: 26px;
+}
+
+
+/* =========================================================
+   ИНТЕРАКТИВНАЯ КАРТОЧКА
+   ========================================================= */
+
+.demo-card {
+    width: min(360px, 90%);
+
+    margin: 0 auto 28px;
+
+    padding: 26px 20px 24px;
+
+    background: #FFFDF8;
+
+    border: 2px solid #E8D6B8;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 22px
+        rgba(90, 64, 53, 0.10);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.demo-card:hover {
+    transform:
+        translateY(-3px)
+        rotate(0.5deg);
+
+    border-color: #B99A6B;
+
+    box-shadow:
+        0 14px 28px
+        rgba(90, 64, 53, 0.14);
+}
+
+
+.demo-card:active {
+    transform:
+        translateY(0)
+        scale(0.98);
+}
+
+
+/* Маленькая надпись на карточке */
+
+.demo-card-label {
+    font-size: 10px;
+
+    letter-spacing: 0.22em;
+
+    color: #6E2638;
+
+    margin-bottom: 18px;
+
+    font-weight: bold;
+}
+
+
+/* Само слово */
+
+.demo-word {
+    min-height: 38px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    color: #30251F;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* Подсказка */
+
+.demo-card-hint {
+    margin-top: 14px;
+
+    font-size: 12px;
+
+    color: #907B6E;
+}
+
+
+/* Анимация нового слова */
+
+.word-changing {
+    animation:
+        demoWordChange
+        0.3s
+        ease;
+}
+
+
+@keyframes demoWordChange {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(7px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   ИНФОРМАЦИЯ ОБ ИГРЕ
+   ========================================================= */
+
+.start-screen .game-info {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px 16px;
+
+    margin-top: 4px;
+
+    margin-bottom: 20px;
+
+    background: #F1E2C9;
+
+    border:
+        1px solid #E1CEB2;
+}
+
+
+.start-screen .game-info p {
+    margin: 0;
+
+    font-size: 14px;
+
+    color: #806B5F;
+}
+
+
+.start-screen .game-info strong {
+    color: #5A4035;
+}
+
+
+.info-divider {
+    color: #B99A6B;
+}
+
+
+/* =========================================================
+   КНОПКА НАЧАЛА
+   ========================================================= */
+
+.start-screen #startButton {
+    width: 100%;
+
+    min-height: 56px;
+
+    font-size: 17px;
+
+    letter-spacing: 0.04em;
+
+    background: #6E2638;
+
+    box-shadow:
+        0 7px 16px
+        rgba(110, 38, 56, 0.18);
+}
+
+
+.start-screen #startButton:hover {
+    background: #58202F;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* Маленький текст */
+
+.start-hint {
+    margin-top: 14px;
+
+    font-size: 12px;
+
+    color: #907B6E;
+}
+
+
+/* =========================================================
+   ДЕКОРАТИВНЫЕ ТОЧКИ
+   ========================================================= */
+
+.floating-dot {
+    position: absolute;
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #E8D6B8;
+
+    opacity: 0.7;
+
+    pointer-events: none;
+
+    animation:
+        floatingDot
+        4s
+        ease-in-out
+        infinite;
+}
+
+
+.dot-one {
+    left: 12%;
+
+    top: 17%;
+}
+
+
+.dot-two {
+    right: 15%;
+
+    top: 27%;
+
+    animation-delay: 1s;
+}
+
+
+.dot-three {
+    left: 20%;
+
+    bottom: 20%;
+
+    animation-delay: 2s;
+}
+
+
+.dot-four {
+    right: 22%;
+
+    bottom: 15%;
+
+    animation-delay: 3s;
+}
+
+
+@keyframes floatingDot {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-7px);
+    }
+
+}
+
+
+/* =========================================================
+   МОБИЛЬНАЯ ВЕРСИЯ СТАРТОВОГО ЭКРАНА
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .start-screen {
+        padding-top: 28px;
+    }
+
+
+    .alias-logo {
+        font-size: 45px;
+    }
+
+
+    .start-screen .subtitle {
+        font-size: 15px;
+
+        margin-bottom: 22px;
+    }
+
+
+    .demo-card {
+        width: 100%;
+
+        padding:
+            24px
+            16px
+            22px;
+
+        margin-bottom: 24px;
+    }
+
+
+    .demo-word {
+        font-size: 27px;
+    }
+
+
+    .start-screen .game-info {
+        gap: 8px;
+
+        padding:
+            11px
+            10px;
+    }
+
+
+    .start-screen .game-info p {
+        font-size: 13px;
+    }
+
+
+    .floating-dot {
+        width: 6px;
+
+        height: 6px;
+    }
+
+}
+
+
+/* =========================================================
+   УВАЖЕНИЕ К УМЕНЬШЕННОЙ АНИМАЦИИ
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .floating-dot {
+        animation: none;
+    }
+
+
+    .alias-logo,
+    .demo-card,
+    .start-screen #startButton {
+        transition: none;
+    }
+
+
+    .word-changing {
+        animation: none;
+    }
+
+}
+/* =========================================================
+   АНИМАЦИЯ СМЕНЫ ИГРОВОГО СЛОВА
+   ========================================================= */
+
+.word-changing {
+    animation:
+        gameWordChange
+        0.28s
+        ease-out;
+}
+
+
+@keyframes gameWordChange {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(8px)
+            scale(0.97);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .word-changing {
+        animation: none;
+    }
+
+}
+/* =========================================================
+   ПРЕМИАЛЬНАЯ КАРТОЧКА СО СЛОВОМ
+   ========================================================= */
+
+.word-card {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 230px;
+
+    margin: 30px auto;
+
+    padding: 40px 30px;
+
+    background: #FFFDF8;
+
+    border: 1px solid #E1CEB2;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 12px 30px rgba(48, 37, 31, 0.08),
+        0 3px 8px rgba(48, 37, 31, 0.05);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* Декоративная линия сверху */
+
+.word-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 12%;
+    right: 12%;
+
+    height: 4px;
+
+    background: #6E2638;
+
+    border-radius:
+        0 0 10px 10px;
+}
+
+
+/* Небольшой декоративный элемент */
+
+.word-card::after {
+    content: "ALIAS";
+
+    position: absolute;
+
+    top: 18px;
+    right: 24px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: #B8A28C;
+}
+
+
+/* Само слово */
+
+.word-card #word {
+    position: relative;
+
+    z-index: 1;
+
+    margin: 0;
+
+    color: #30251F;
+
+    font-size: clamp(
+        28px,
+        5vw,
+        46px
+    );
+
+    font-weight: 800;
+
+    line-height: 1.1;
+
+    letter-spacing: 1px;
+
+    text-align: center;
+
+    word-break: break-word;
+}
+
+
+/* Лёгкий эффект при наведении */
+
+.word-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 16px 36px rgba(48, 37, 31, 0.11),
+        0 5px 12px rgba(48, 37, 31, 0.06);
+}
+
+
+/* На телефоне */
+
+@media (max-width: 600px) {
+
+    .word-card {
+
+        min-height: 190px;
+
+        margin: 22px auto;
+
+        padding: 35px 20px;
+
+        border-radius: 22px;
+
+    }
+
+
+    .word-card::after {
+
+        top: 15px;
+
+        right: 18px;
+
+        font-size: 9px;
+
+    }
+
+ .word-card #word {
+
+    font-size: clamp(
+        25px,
+        7vw,
+        38px
+    );
+
+}
+}
+/* =========================================================
+   РЕЗУЛЬТАТЫ РАУНДА — НОВОЕ ОФОРМЛЕНИЕ
+   ========================================================= */
+
+.teams-scoreboard {
+    width: 100%;
+    max-width: 520px;
+
+    margin: 25px auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.team-score-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 58px;
+
+    padding: 12px 18px;
+
+    box-sizing: border-box;
+
+    background: #FFFDF8;
+
+    border: 1px solid #E1CEB2;
+
+    border-radius: 16px;
+
+    color: #5A4035;
+
+    font-size: 16px;
+
+    box-shadow:
+        0 4px 12px rgba(48, 37, 31, 0.05);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.team-score-row:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 7px 16px rgba(48, 37, 31, 0.08);
+}
+
+
+.team-score-row strong {
+    color: #30251F;
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    font-variant-numeric: tabular-nums;
+}
+
+
+/* Первая команда в таблице */
+
+.team-score-row:first-child {
+    border-color: #C9AA72;
+
+    background: #F8F0E2;
+}
+
+
+/* Мобильная версия */
+
+@media (max-width: 600px) {
+
+    .teams-scoreboard {
+        margin: 20px auto;
+        gap: 8px;
+    }
+
+
+    .team-score-row {
+        min-height: 54px;
+
+        padding: 10px 14px;
+
+        border-radius: 14px;
+
+        font-size: 15px;
+    }
+
+
+    .team-score-row strong {
+        font-size: 20px;
+    }
+
+}
