@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Alias Game</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="game-container start-screen">
+
+
+        <!-- Декоративные элементы -->
+
+        <span class="floating-dot dot-one"></span>
+
+        <span class="floating-dot dot-two"></span>
+
+        <span class="floating-dot dot-three"></span>
+
+        <span class="floating-dot dot-four"></span>
+
+
+        <!-- Логотип -->
+
+        <div class="brand-label">
+            THE WORD GAME
+        </div>
+
+
+        <h1 class="alias-logo">
+            ALIAS
+        </h1>
+
+
+        <div class="logo-line"></div>
+
+
+        <p class="subtitle">
+            Объясняй. Угадывай. Побеждай.
+        </p>
+
+
+        <!-- Интерактивная карточка -->
+
+        <div
+            class="demo-card"
+            id="demoCard"
+            role="button"
+            tabindex="0"
+            aria-label="Показать другое слово"
+        >
+
+            <div class="demo-card-label">
+                ALIAS • CARD
+            </div>
+
+
+            <div
+                class="demo-word"
+                id="demoWord"
+            >
+                ПХУКЕТ
+            </div>
+
+
+            <div class="demo-card-hint">
+                нажмите на карточку
+            </div>
+
+        </div>
+
+
+        <!-- Настройки -->
+
+        <div class="settings">
+
+
+            <label>
+
+                Количество команд
+
+                <select id="teamCount">
+
+                    <option value="2">
+                        2 команды
+                    </option>
+
+                    <option value="3">
+                        3 команды
+                    </option>
+
+                    <option value="4">
+                        4 команды
+                    </option>
+
+                    <option value="5">
+                        5 команд
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <label>
+
+                Сложность
+
+                <select id="difficulty">
+
+                    <option value="easy">
+                        Лёгкая
+                    </option>
+
+                    <option value="medium">
+                        Средняя
+                    </option>
+
+                    <option value="hard">
+                        Сложная
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <!-- Информация об игре -->
+
+            <div class="game-info">
+
+                <p>
+
+                    ⏱️
+
+                    <strong>
+                        60 секунд
+                    </strong>
+
+                </p>
+
+
+                <span class="info-divider">
+                    •
+                </span>
+
+
+                <p>
+
+                    🔢
+
+                    <strong>
+                        10 раундов
+                    </strong>
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- Начало игры -->
+
+        <button id="startButton">
+
+            ▶ НАЧАТЬ ИГРУ
+
+        </button>
+
+
+        <div class="start-hint">
+            Соберите команды и начинайте
+        </div>
+
+
+    </div>
+
+
+    <script src="app.js"></script>
+
+
+    <script>
+
+        const demoCard =
+            document.getElementById(
+                "demoCard"
+            );
+
+
+        const demoWord =
+            document.getElementById(
+                "demoWord"
+            );
+
+
+        const demoWords = [
+
+            "ПХУКЕТ",
+
+            "СЛОН",
+
+            "МАНГО",
+
+            "ТУК-ТУК",
+
+            "ТОМ-ЯМ",
+
+            "ПАЛЬМА"
+
+        ];
+
+
+        let demoWordIndex = 0;
+
+
+        function changeDemoWord() {
+
+            demoWordIndex++;
+
+            if (
+                demoWordIndex >=
+                demoWords.length
+            ) {
+
+                demoWordIndex = 0;
+
+            }
+
+
+            demoWord.classList.remove(
+                "word-changing"
+            );
+
+
+            void demoWord.offsetWidth;
+
+
+            demoWord.textContent =
+                demoWords[
+                    demoWordIndex
+                ];
+
+
+            demoWord.classList.add(
+                "word-changing"
+            );
+
+        }
+
+
+        demoCard.addEventListener(
+            "click",
+            changeDemoWord
+        );
+
+
+        demoCard.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (
+                    event.key === "Enter" ||
+                    event.key === " "
+                ) {
+
+                    event.preventDefault();
+
+                    changeDemoWord();
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
